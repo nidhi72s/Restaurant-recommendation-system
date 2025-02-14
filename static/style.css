@@ -1,0 +1,127 @@
+/* Overall page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+h1 {
+    text-align: center;
+    color: #333;
+    padding: 20px;
+    background-color: #28a745;
+    color: white;
+    font-size: 36px;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    padding: 10px;
+    font-size: 12px;
+    width: 150px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Table styling */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    overflow: hidden;
+    table-layout: fixed;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    word-wrap: break-word; /* Allow text to wrap inside cells */
+}
+
+table th {
+    background-color: #28a745;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #e9e9e9;
+
+}
+
+table td {
+    color: #555;
+}
+
+/* Ensure text wraps properly and looks neat */
+table td,
+table th {
+    word-wrap: break-word;
+    max-width: 200px;  /* Limit column width */
+}
+
+/* Make the table responsive on smaller screens */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+
+    /* Convert table layout into stacked format for mobile */
+    table, th, td {
+        display: block;
+    }
+
+    th, td {
+        width: 100%; /* Make each column take up the full width */
+        box-sizing: border-box;
+    }
+
+    /* Add line breaks for rows with many columns */
+    tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    td {
+        display: block;
+        text-align: right;
+        
+    }
+}

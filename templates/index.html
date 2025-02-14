@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Recommendation</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Restaurant Recommendation System</h1>
+
+    <!-- Form Section -->
+    <form method="GET" action="/recommend">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" placeholder="Enter city name">
+
+        <label for="locality">Locality:</label>
+        <input type="text" id="locality" name="locality" placeholder="Enter locality ">
+
+        <label for="cuisine">Cuisine:</label>
+        <input type="text" id="cuisine" name="cuisine" placeholder="Enter cuisine ">
+
+        <label for="min_cost">Minimum Cost:</label>
+        <input type="number" id="min_cost" name="min_cost" placeholder="">
+
+        <label for="max_cost">Maximum Cost:</label>
+        <input type="number" id="max_cost" name="max_cost" placeholder="">
+
+        <button type="submit">Get Recommendations</button>
+    </form>
+
+    <!-- Error Section -->
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <!-- Recommendations Section -->
+    {% if recommendations %}
+    <h2>Recommended Restaurants</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Locality</th>
+                <th>Cuisines</th>
+                <th>Cost for Two</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for restaurant in recommendations %}
+            <tr>
+                <td>{{ restaurant.name }}</td>
+                <td>{{ restaurant.address }}</td>
+                <td>{{ restaurant.locality }}</td>
+                <td>{{ restaurant.cuisines }}</td>
+                <td>{{ restaurant.average_cost_for_two }}</td>
+                <td>{{ restaurant.aggregate_rating }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+</html>
